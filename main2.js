@@ -13,6 +13,9 @@ const near=0.1;
 const far=100;
 const camera= new THREE.PerspectiveCamera(fov,aspect_ratio,near,far);
 camera.position.y=0.4;
+camera.position.x=3;
+camera.position.z=-2;
+camera.rotateY(90);
 //const controls = new OrbitControls(camera,canvas01);
 const controls = new PointerLockControls(camera, canvas01);
 let movDirection ="idle";
@@ -101,12 +104,9 @@ function animate() {
                 distance=-delta_dist;
                 controls.moveRight(distance);
                 break;
+        }
     }
-    
-
-
-    }
-
+    camera.rotateY(0.01);
 }
 
 function main(){
